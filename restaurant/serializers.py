@@ -4,10 +4,15 @@ from .models import MenuItem, Booking
 class MenuItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = MenuItem
-        fields = ['id', 'title', 'description', 'price', 'inventory']
+        fields = '__all__'
 
+    def create(self, validated_data):
+        return MenuItem.objects.create(**validated_data)
 
-class BookingSerializer(serializers.Serializer):
+class BookingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Booking
         fields = '__all__'
+
+    def create(self, validated_data):
+        return Booking.objects.create(**validated_data)

@@ -7,7 +7,7 @@ class MenuItem(models.Model):
     inventory = models.SmallIntegerField(default=0)
 
     def get_item(self):
-        return f'{self.title} : {str(self.description)}'
+        return f'{self.title} : {str(self.price)}'
 
 class Booking(models.Model):
     customer_name = models.CharField(max_length=100)
